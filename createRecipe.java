@@ -10,20 +10,30 @@ import java.util.Scanner;
 
 //Automatically saves the recipe
 
-public class Createrecipes{
-    public static void receipeTitle(String[] args){
+class createRecipe{
+    //title
+    public static void recipeTitle(String[] args){
         Scanner title = new Scanner(System.in);
         System.out.println("Please enter the title of the recipe:");
         
         String receipeTitle = title.nextLine();
-        System.out.println("Your receipe title is: " + receipeTitle);
+        System.out.println("Your recipe title is: " + receipeTitle);
     }
-
-    public static void receipeDescription(String[] args){
+    //description
+    public static void recipeDescription(String[] args){
         Scanner description = new Scanner(System.in);
-        System.out.println("Please enter the description of the receipe:");
+        System.out.println("Please enter the description of the recipe:");
 
         String receipeDescription = description.nextLine();
-        System.out.println("Your receipe description is: " + receipeDescription);
+        System.out.println("Your recipe description is: " + receipeDescription);
+    }
+    //ingredient list -- dynamic array
+    
+    
+
+    public static void recipeInstructions(String[] args){
+        Scanner instructions = new Scanner (System.in);
+        System.out.println("Please enter the instructions for this step: ");
+        //unfinished
     }
 }
