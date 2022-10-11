@@ -77,4 +77,15 @@ class createRecipe{
             System.out.print(instructionsList.get(i));
         }
     }
+
+    public void callAll() {
+        String[] filler = {"filling the array for use!"};
+        createRecipe alsoAFiller = new createRecipe(); 
+
+        //Calling all methods
+        alsoAFiller.recipeTitle(filler);
+        alsoAFiller.recipeDescription(filler);
+        alsoAFiller.ingrdList(filler);
+        alsoAFiller.instructions(filler);
+    }
 }
