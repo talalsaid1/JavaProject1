@@ -1,7 +1,8 @@
+import java.io.IOException;
 import java.util.*;
 
 public class TTYD {
-	public static void main(String[] args) {
+	public static void main(String[] args)throws IOException {
         createRecipe forCreation = new createRecipe();
 
         

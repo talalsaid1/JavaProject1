@@ -33,14 +33,14 @@ public class Recipe {
 
     public String toString(){
         StringBuffer data = new StringBuffer();
-        data.append(title + "/n # /n");
-        data.append(description + "/n # /n");
+        data.append(title + "\n # \n");
+        data.append(description + "\n # \n");
         for (String ingredient : ingredients){
-            data.append(ingredient + "/n");
+            data.append(ingredient + "\n");
         }
-        data.append("/n # /n");
+        data.append("\n #");
         for (String instruction : instructions){
-            data.append(instruction + "/n");
+            data.append(instruction + "\n");
         }
 
         return data.toString();

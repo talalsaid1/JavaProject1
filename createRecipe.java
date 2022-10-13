@@ -1,5 +1,10 @@
 import java.util.Scanner;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.*;
 //As a user I want to be able to create recipes in the recipe book with the ingredient list and a step by step instruction so that I can store and recreate them easily
 
@@ -65,12 +70,16 @@ class createRecipe{
         }
     }
 
-    public void writeFile(Recipe recipe){
-        File recipes = new File("recipe.txt");
+    public void writeFile(Recipe recipe)throws IOException{
+        File recipefile = new File("recipe.txt");
+        FileWriter writer = new FileWriter(recipefile);
+        String text = recipe.toString();
+        writer.write(text);
+        writer.close();
         
     }
 
-    public void callAll() {
+    public void callAll()throws IOException {
         createRecipe alsoAFiller = new createRecipe(); 
         Recipe recipe = new Recipe();
         //Calling all methods
@@ -78,5 +87,6 @@ class createRecipe{
         alsoAFiller.recipeDescription(recipe);
         alsoAFiller.ingrdList(recipe);
         alsoAFiller.instructions(recipe);
+        writeFile(recipe);
     }
 }
