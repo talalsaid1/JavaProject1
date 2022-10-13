@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.io.File;
 import java.util.*;
 //As a user I want to be able to create recipes in the recipe book with the ingredient list and a step by step instruction so that I can store and recreate them easily
 
@@ -11,81 +12,71 @@ import java.util.*;
 //Automatically saves the recipe
 
 class createRecipe{
-    
+
+    Scanner scan = new Scanner(System.in);
     //title
-    public void recipeTitle(String[] args){
-        Scanner title = new Scanner(System.in);
+    public void recipeTitle(Recipe recipe){
+        
         System.out.println("Please enter the title of the recipe:");
         
-        String receipeTitle = title.nextLine();
-        System.out.println("Your recipe title is: " + receipeTitle);
+        String recipeTitle = scan.nextLine();
+        System.out.println("Your recipe title is: " + recipeTitle);
+        recipe.settitle(recipeTitle);
     }
 
     //description
-    public void recipeDescription(String[] args){
-        Scanner description = new Scanner(System.in);
+    public void recipeDescription(Recipe recipe){
+        
         System.out.println("Please enter the description of the recipe:");
 
-        String receipeDescription = description.nextLine();
+        String receipeDescription = scan.nextLine();
         System.out.println("Your recipe description is: " + receipeDescription);
+        recipe.setdescription(receipeDescription);
     }
 
     //ingredient list -- dynamic array
-    public void ingrdList(String[] args) {
-        ArrayList<String> mylist = new ArrayList<String>();
-        //Value for while loop
-
+    public void ingrdList(Recipe recipe) {
         System.out.println("Please enter your ingredients one by one (Enter 'done' when you are done): ");
         boolean x = true;
         while (x) {
-            Scanner list = new Scanner(System.in);
             //Fix user experience for prompting
-            String userIng = list.nextLine();
+            String userIng = scan.nextLine();
             if (userIng.equals("done")) {
                     break;
             } else {
-                mylist.add(userIng);
+                recipe.addingredient(userIng);
             }
-        }
-        
-        for(int i = 0; i < mylist.size(); i++) {   
-            System.out.print(mylist.get(i));
         }
     }
     
     //Instructions
-    public void instructions(String[] args) {
-
-        ArrayList<String> instructionsList = new ArrayList<String>(); 
-
+    public void instructions(Recipe recipe) {
         //Possible move to inside of 
         System.out.println("Please enter your instructions one by one" + "\n(Enter 'done' when you are done): ");
 
         boolean x = true;
         while (x) {
-            Scanner input = new Scanner (System.in);
-
-            String userInstructions = input.nextLine();
+            String userInstructions = scan.nextLine();
             if (userInstructions.equals("done")) {
                 x = false;
             } else {
-               instructionsList.add(userInstructions);
+               recipe.addinstructions(userInstructions);
             }
-        }
-        
-        for(int i = 0; i < instructionsList.size(); i++) {   
-            System.out.print(instructionsList.get(i));
         }
     }
 
-    public void callAll() {
-        String[] filler = {"filling the array for use!"};
-        createRecipe alsoAFiller = new createRecipe(); 
+    public void writeFile(Recipe recipe){
+        File recipes = new File("recipe.txt");
+        
+    }
 
+    public void callAll() {
+        createRecipe alsoAFiller = new createRecipe(); 
+        Recipe recipe = new Recipe();
         //Calling all methods
-        alsoAFiller.recipeTitle(filler);
-        alsoAFiller.recipeDescription(filler);
-        alsoAFiller.ingrdList(filler);
-        alsoAFiller.instructions(filler);
+        alsoAFiller.recipeTitle(recipe);
+        alsoAFiller.recipeDescription(recipe);
+        alsoAFiller.ingrdList(recipe);
+        alsoAFiller.instructions(recipe);
     }
 }
