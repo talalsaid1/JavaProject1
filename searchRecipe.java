@@ -14,11 +14,11 @@ public class searchRecipe {
 
         //match 
         ArrayList <String> list = new ArrayList<String>();
-        for (String recipeName: list){
+        for (String title: list){
             //return matching recipe in a list
-            if (recipeName.contains(userInput)){
+            if (title.contains(recipeName)){
                 System.out.println("Here's the matching recipes: ");
-                System.out.println(recipeName);
+                System.out.println(title);
             }
         }
     }
