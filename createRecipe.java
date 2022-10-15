@@ -25,7 +25,6 @@ class createRecipe{
         System.out.println("Please enter the title of the recipe:");
         
         String recipeTitle = scan.nextLine();
-        System.out.println("Your recipe title is: " + recipeTitle);
         recipe.settitle(recipeTitle);
     }
 
@@ -35,7 +34,6 @@ class createRecipe{
         System.out.println("Please enter the description of the recipe:");
 
         String receipeDescription = scan.nextLine();
-        System.out.println("Your recipe description is: " + receipeDescription);
         recipe.setdescription(receipeDescription);
     }
 

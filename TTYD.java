@@ -8,10 +8,9 @@ public class TTYD {
         createRecipe forCreation = new createRecipe();
         List<Recipe> recipes = new ArrayList<Recipe>();
         
-
+        Scanner askMain = new Scanner(System.in);
         while (true) {
             //Asking user to select
-            Scanner askMain = new Scanner(System.in);
             System.out.println("\n \n");
             System.out.println("Enter a number to select from the following Menu Options: \n");
             System.out.println("*-------------------------------------------------------* \n");
@@ -32,14 +31,21 @@ public class TTYD {
                 recipes.add(addrecipe);
             }
             else if(userAnswer.equals("2")){
-                for(int index = 0; index < recipes.size(); index++){
+                for(int index = 0; index < recipes.size(); index++) {
                     Recipe printRecipe = recipes.get(index);
-                    System.out.println((index+1)+ ": " + printRecipe.gettitle());
+                    System.out.println((index+1)+ ": " + printRecipe.gettitle() + "\n");
                 }
                 System.out.println("Select a recipe number to print");
                 int recipenumber = askMain.nextInt();
                 Recipe chosenRecipe = recipes.get(recipenumber-1);
-                System.out.println(chosenRecipe);
+                //Forking into two differnet options
+                System.out.println(" ");
+                System.out.println("Enter S: Explore Step By Step ");
+                System.out.println("Enter E: Display the entire recipe ");
+                Scanner whichInput = new Scanner(System.in);
+                String selected = whichInput.nextLine();
+                exploreRecipe exploreRecipe = new exploreRecipe();
+                exploreRecipe.explore(selected, chosenRecipe);
             }
             else if (userAnswer.equals("3")) {
                 System.out.println("Insert the recipe title");
@@ -48,14 +54,26 @@ public class TTYD {
                 for(Recipe matches : results){
                     System.out.println(matches.gettitle());
                 }
+                //************************************** */
+                //Assign the matched recipe to a type Recipe and feed it in 65
+                /*************************************** */
+                // System.out.println("Enter S: Explore Step By Step ");
+                // System.out.println("Enter E: Display the entire recipe ");
+                // Scanner whichInput = new Scanner(System.in);
+                // String selected = whichInput.nextLine();
+                // exploreRecipe exploreRecipe = new exploreRecipe();
+                /***************** **************************/ 
+                //NEEDS recipe object passed in from 58
+                //******************************************* */
+                // exploreRecipe.explore(selected, chosenRecipe);
 
             } else if (userAnswer.equals("4")) {
                 System.out.println("Hello! This section will explain the functions of this program \n On our main menue you are presented two options: \n 1. To create a recipe \n Or to Search for previously created recipes. \n If you choose to create a recipee you will be asekd for: \n 1. Recipe Title \n 2. Recipe Description \n 3. Ingrediens \n 4. Instrcutions \n The information will automatically be saved. Note: For functions that require more than one input please type 'done' when finished to move on to the next step.");
                 System.out.println("As for searching for a previously saved recipe:"); //Continue when search is finished
-            } else {
-                System.out.println("Invalid Command, Try Again :)");
-                continue;
-            }
+            }// } else {
+            //     System.out.println("Invalid Command, Try Again :)");
+            //     continue;
+            // }
         }
         writeFile(recipes);
        
@@ -76,8 +94,8 @@ public class TTYD {
             if(match.gettitle().contains(keyword)){
                 searchresults.add(match);
             }
-        
         }
+        //Returns an arrayList
         return searchresults;
 
     }
