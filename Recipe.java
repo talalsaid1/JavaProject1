@@ -31,6 +31,10 @@ public class Recipe {
         instructions.add(instruction);
     }
 
+    public String gettitle(){
+        return title;
+    }
+
     public String toString(){
         StringBuffer data = new StringBuffer();
         data.append(title + "\n # \n");

@@ -30,7 +30,13 @@ public class TTYD {
                 Recipe addrecipe = forCreation.callAll();
                 recipes.add(addrecipe);
             } else if (userAnswer.equals("2")) {
-                //Fill in with another callAll once created
+                System.out.println("Insert the recipe title");
+                String input = askMain.nextLine();
+                List<Recipe> results = search(recipes, input);
+                for(Recipe matches : results){
+                    System.out.println(matches.gettitle());
+                }
+
             } else if (userAnswer.equals("3")) {
                 System.out.println("Hello! This section will explain the functions of this program \n On our main menue you are presented two options: \n 1. To create a recipe \n Or to Search for previously created recipes. \n If you choose to create a recipee you will be asekd for: \n 1. Recipe Title \n 2. Recipe Description \n 3. Ingrediens \n 4. Instrcutions \n The information will automatically be saved. Note: For functions that require more than one input please type 'done' when finished to move on to the next step.");
                 System.out.println("As for searching for a previously saved recipe:"); //Continue when search is finished
@@ -52,4 +58,15 @@ public class TTYD {
         writer.close();
         
         }  
+     public static List<Recipe> search(List<Recipe> searchRecipes, String keyword){
+        List<Recipe> searchresults = new ArrayList<Recipe>();
+        for(Recipe match : searchRecipes){
+            if(match.gettitle().contains(keyword)){
+                searchresults.add(match);
+            }
+        
+        }
+        return searchresults;
+
+    }
 }
