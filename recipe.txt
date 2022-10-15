@@ -1,9 +1,28 @@
-test
- # 
-testing
- # 
-1
-2
 
- #ing1
-ing2
+ Title: # 
+cake# 
+Description: 
+yum# 
+Ingredeint: 
+1sugar
+1water
+
+ #Instructions: 
+1cook
+1bake
+1eat
+
+ Title: # 
+fruit# 
+Description: 
+salad# 
+Ingredeint: 
+1mango
+1straw
+
+ #Instructions: 
+1celan
+1wash
+1eat
+1enjot
+1donw
