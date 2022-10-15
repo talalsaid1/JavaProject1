@@ -1,10 +1,12 @@
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 
 public class TTYD {
 	public static void main(String[] args)throws IOException {
         createRecipe forCreation = new createRecipe();
-
+        List<Recipe> recipes = new ArrayList<Recipe>();
         
 
         while (true) {
@@ -14,7 +16,7 @@ public class TTYD {
             System.out.println("Enter a number to select from the following Menu Options: \n");
             System.out.println("*-------------------------------------------------------* \n");
             System.out.println("    1. Create recipe \n");
-            System.out.println("    2. Explore Recipes \n");
+            System.out.println("    2. Search Recipes \n");
             System.out.println("    3. How to use? \n");
             System.out.println("    4. Exit \n");
             System.out.println("*-------------------------------------------------------* \n");
@@ -25,7 +27,8 @@ public class TTYD {
                 break;
             } else if (userAnswer.equals("1")) {
                 System.out.println("\n");
-                forCreation.callAll();
+                Recipe addrecipe = forCreation.callAll();
+                recipes.add(addrecipe);
             } else if (userAnswer.equals("2")) {
                 //Fill in with another callAll once created
             } else if (userAnswer.equals("3")) {
@@ -36,5 +39,17 @@ public class TTYD {
                 continue;
             }
         }
-	}   
+        writeFile(recipes);
+       
+	} 
+     public static void writeFile(List<Recipe> recipes)throws IOException{
+        File recipefile = new File("recipe.txt");
+        FileWriter writer = new FileWriter(recipefile);
+        for(Recipe writeRecipe : recipes){
+            String text = writeRecipe.toString();
+            writer.write(text);
+        }
+        writer.close();
+        
+        }  
 }

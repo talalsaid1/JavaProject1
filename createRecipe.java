@@ -70,16 +70,7 @@ class createRecipe{
         }
     }
 
-    public void writeFile(Recipe recipe)throws IOException{
-        File recipefile = new File("recipe.txt");
-        FileWriter writer = new FileWriter(recipefile);
-        String text = recipe.toString();
-        writer.write(text);
-        writer.close();
-        
-    }
-
-    public void callAll()throws IOException {
+    public Recipe callAll()throws IOException {
         createRecipe alsoAFiller = new createRecipe(); 
         Recipe recipe = new Recipe();
         //Calling all methods
@@ -87,6 +78,6 @@ class createRecipe{
         alsoAFiller.recipeDescription(recipe);
         alsoAFiller.ingrdList(recipe);
         alsoAFiller.instructions(recipe);
-        writeFile(recipe);
+        return recipe;
     }
 }
