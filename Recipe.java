@@ -11,8 +11,6 @@ public class Recipe {
     public Recipe() {
         ingredients = new ArrayList<String>();
         instructions = new ArrayList<String>();
-    
-        
     }
 
     public void settitle(String intitle){
@@ -50,28 +48,23 @@ public class Recipe {
     //for file format
     public String toString(){
         StringBuffer data = new StringBuffer();
-        data.append("Title: # \n" + title + "# \n");
+        data.append("Title: #" + title + "# \n");
 
-        data.append("Description: \n" + description + "# \n");
+        data.append("Description: #" + description + "# \n");
 
-        data.append("Ingredeint: \n");
+        data.append("Ingredeint: #");
         for (String ingredient : ingredients){
-            int counter = 1;
-            data.append(counter +ingredient + "\n");
-            counter ++;
+            data.append(ingredient + "\n");
         }
-        data.append("\n #");
-
-        data.append("Instructions: \n");
+        data.append("Instructions: #");
         for (String instruction : instructions){
-            int counter = 1;
-            data.append(counter + instruction + "\n");
-            counter ++;
+            data.append(instruction + "\n");
         }
 
         return data.toString();
     }
 
+    //for printing when user wants to see all the recipe at once
     public String userToString(){
         StringBuffer data = new StringBuffer();
         data.append("\nTitle: \n" + title + "\n");

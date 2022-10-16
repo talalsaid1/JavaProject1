@@ -1,19 +1,37 @@
-Title: # 
-fruit# 
-Description: 
-salad# 
-Ingredeint: 
-1mango
-
- #Instructions: 
-1mix
-1clean
-Title: # 
-cake# 
-Description: 
-choco# 
-Ingredeint: 
-1milk
-
- #Instructions: 
-1mix
+Title: #Cookies# 
+Description: #Chocolate chip# 
+Ingredeint: #Sugar
+Milk
+Flour
+Eggs
+Chocolate chips
+Nutella
+Instructions: #Break the eggs and mix with the sugar
+Add the nutella and two cups of chocolate chips
+Mix well with the othr ingredients and bake for 30 minutes on meidum heat
+Title: #Fruit# 
+Description: #Salad# 
+Ingredeint: #Strawberry
+Banana
+Orange
+Mango
+Instructions: #Wash and peal the fruits
+Squeeze the orange to make a juice 
+Slice the fruits into small chunks
+Mix and refregirate
+Title: #Cake# 
+Description: #Red Velvet Special# 
+Ingredeint: #Coconut
+Peanut butter
+Red velvet 
+Sprinkles
+Eggs
+Flour
+Baking soda
+Instructions: #Mix the eggs and flour 
+Slowly add the peanut butter
+Keep mixing and add coconut flakes
+Add the red velvet and baking soda
+Leave to rest for one hour 
+Bake at low until it rises
+Add sprinkles at the end

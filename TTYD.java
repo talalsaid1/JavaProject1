@@ -61,7 +61,7 @@ public class TTYD {
                     System.out.println("No saved recipes found");
                 }
                 else{
-                    System.out.println("Insert the recipe title");
+                    System.out.println("\nInsert the recipe title");
                     String input = askMain.nextLine();
                     List<Recipe> results = search(recipes, input);
                     if(results.isEmpty()){
@@ -70,13 +70,13 @@ public class TTYD {
                     else{
                         for(int index=0; index < results.size(); index++){
                             Recipe match = results.get(index);
-                            System.out.println((index+1)+ ": " + match.gettitle());
+                            System.out.println("\n"+ (index+1)+ ": " + match.gettitle());
                         }
-                        System.out.println("Select a recipe number to print");
+                        System.out.println("\nSelect a recipe number to print");
                         int recipenumber = askMain.nextInt();
                         askMain.nextLine();
                         Recipe chosen = recipes.get(recipenumber-1);
-                        System.out.println("Enter S: Explore Step By Step ");
+                        System.out.println("\nEnter S: Explore Step By Step ");
                         System.out.println("Enter E: Display the entire recipe ");
                         String selected = askMain.nextLine();
                         ExploreRecipe exploreRecipe = new ExploreRecipe();
@@ -88,10 +88,9 @@ public class TTYD {
                 }
             } 
             else if (userAnswer.equals("4")) {
-                System.out.println("Hello! This section will explain the functions of this program \n On our main menue you are presented two options: \n 1. To create a recipe \n Or to Search for previously created recipes. \n If you choose to create a recipee you will be asekd for: \n 1. Recipe Title \n 2. Recipe Description \n 3. Ingrediens \n 4. Instrcutions \n The information will automatically be saved. Note: For functions that require more than one input please type 'done' when finished to move on to the next step.");
-                System.out.println("As for searching for a previously saved recipe: There are two options. Either browsing through all saved recipes or searching by keyword (title)");
+                System.out.println("Hello! This section will explain the functions of this program \n \nOn our main menue you are presented two options: \n 1. To create a recipe \n 2. to Search for previously created recipes.\n \n If you choose to create a recipee you will be asekd for: \n 1. Recipe Title \n 2. Recipe Description \n 3. Ingrediens \n 4. Instrcutions\n \n The information will automatically be saved. Note: For functions that require more than one input please type 'done' when finished to move on to the next step.\n \n As for searching for a previously saved recipe, there are two options: Either browsing through all saved recipes or by searching by keyword (title). Once you choose a recipe through one of these methods you can decide to view the recipe in its entierty or to view the instructions step by step to help you while cooking.");
 
-                System.out.println("\n press enter to continue");
+                System.out.println("\n Press enter to continue");
                 askMain.nextLine();
                 askMain.nextLine();
             } else {
