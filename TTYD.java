@@ -32,48 +32,68 @@ public class TTYD {
                 recipes.add(addrecipe);
             }
             else if(userAnswer.equals("2")){
-                for(int index = 0; index < recipes.size(); index++) {
-                    Recipe printRecipe = recipes.get(index);
-                    System.out.println((index+1)+ ": " + printRecipe.gettitle() + "\n");
+                if(recipes.isEmpty()){
+                    System.out.println("No saved recipes found");
                 }
-                System.out.println("Select a recipe number to print");
-                int recipenumber = askMain.nextInt();
-                Recipe chosenRecipe = recipes.get(recipenumber-1);
-                //Forking into two differnet options
-                System.out.println(" ");
-                System.out.println("Enter S: Explore Step By Step ");
-                System.out.println("Enter E: Display the entire recipe ");
-                Scanner whichInput = new Scanner(System.in);
-                String selected = whichInput.nextLine();
-                ExploreRecipe exploreRecipe = new ExploreRecipe();
-                exploreRecipe.explore(selected, chosenRecipe);
-                System.out.println("press enter to continue");
-                askMain.nextLine();
+                else{
+                    for(int index = 0; index < recipes.size(); index++) {
+                        Recipe printRecipe = recipes.get(index);
+                        System.out.println((index+1)+ ": " + printRecipe.gettitle() + "\n");
+                    }
+                    System.out.println("Select a recipe number to print");
+                    int recipenumber = askMain.nextInt();
+                    Recipe chosenRecipe = recipes.get(recipenumber-1);
+                    //Forking into two differnet options
+                    System.out.println(" ");
+                    System.out.println("Enter S: Explore Step By Step ");
+                    System.out.println("Enter E: Display the entire recipe ");
+                    Scanner whichInput = new Scanner(System.in);
+                    String selected = whichInput.nextLine();
+                    ExploreRecipe exploreRecipe = new ExploreRecipe();
+                    exploreRecipe.explore(selected, chosenRecipe);
+                    System.out.println("press enter to continue");
+                    askMain.nextLine();
+                    askMain.nextLine();
+                }   
             }
             else if (userAnswer.equals("3")) {
-                System.out.println("Insert the recipe title");
-                String input = askMain.nextLine();
-                List<Recipe> results = search(recipes, input);
-                for(int index=0; index < results.size(); index++){
-                    Recipe match = recipes.get(index);
-                    System.out.println((index+1)+ ": " + match.gettitle());
+                if(recipes.isEmpty()){
+                    System.out.println("No saved recipes found");
                 }
-                System.out.println("Select a recipe number to print");
-                int recipenumber = askMain.nextInt();
-                askMain.nextLine();
-                Recipe chosen = recipes.get(recipenumber-1);
-                System.out.println("Enter S: Explore Step By Step ");
-                System.out.println("Enter E: Display the entire recipe ");
-                String selected = askMain.nextLine();
-                ExploreRecipe exploreRecipe = new ExploreRecipe();
-                exploreRecipe.explore(selected, chosen);
-                System.out.println("press enter to continue");
-                askMain.nextLine();
-                askMain.nextLine();
+                else{
+                    System.out.println("Insert the recipe title");
+                    String input = askMain.nextLine();
+                    List<Recipe> results = search(recipes, input);
+                    if(results.isEmpty()){
+                        System.out.println("No saved recipes found");
+                    }
+                    else{
+                        for(int index=0; index < results.size(); index++){
+                            Recipe match = results.get(index);
+                            System.out.println((index+1)+ ": " + match.gettitle());
+                        }
+                        System.out.println("Select a recipe number to print");
+                        int recipenumber = askMain.nextInt();
+                        askMain.nextLine();
+                        Recipe chosen = recipes.get(recipenumber-1);
+                        System.out.println("Enter S: Explore Step By Step ");
+                        System.out.println("Enter E: Display the entire recipe ");
+                        String selected = askMain.nextLine();
+                        ExploreRecipe exploreRecipe = new ExploreRecipe();
+                        exploreRecipe.explore(selected, chosen);
+                        System.out.println("press enter to continue");
+                        askMain.nextLine();
+                        askMain.nextLine();
+                    }
+                }
             } 
             else if (userAnswer.equals("4")) {
                 System.out.println("Hello! This section will explain the functions of this program \n On our main menue you are presented two options: \n 1. To create a recipe \n Or to Search for previously created recipes. \n If you choose to create a recipee you will be asekd for: \n 1. Recipe Title \n 2. Recipe Description \n 3. Ingrediens \n 4. Instrcutions \n The information will automatically be saved. Note: For functions that require more than one input please type 'done' when finished to move on to the next step.");
                 System.out.println("As for searching for a previously saved recipe: There are two options. Either browsing through all saved recipes or searching by keyword (title)");
+
+                System.out.println("\n press enter to continue");
+                askMain.nextLine();
+                askMain.nextLine();
             } else {
                 System.out.println("Invalid Command, Try Again :)");
                 continue;

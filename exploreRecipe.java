@@ -7,7 +7,9 @@ public class ExploreRecipe {
         if (selected.equals("S") || selected.equals("s")) {
             System.out.println("\n");
             System.out.println("Recipe Name: " + chosenRecipe.gettitle());
+            System.out.println("\n");
             System.out.println("Recipe Description: " + chosenRecipe.getDescription());
+            System.out.println("\n");
             for(String printingredients : chosenRecipe.getIngridients()){
                 System.out.println("Recipe Ingredients: " + printingredients);
             }
@@ -21,6 +23,8 @@ public class ExploreRecipe {
                 ready.nextLine();
             }
             
+            System.out.println("\n");
+            System.out.println("*-------------------------------------------------------*");
             System.out.println("End of instructions");
             System.out.println("*-------------------------------------------------------*");
             System.out.println("\n");

@@ -74,20 +74,20 @@ public class Recipe {
 
     public String userToString(){
         StringBuffer data = new StringBuffer();
-        data.append("Title: \n" + title + "\n");
+        data.append("\nTitle: \n" + title + "\n");
 
-        data.append("Description: \n" + description + "\n");
+        data.append("\nDescription: \n" + description + "\n");
 
-        data.append("Ingredients: \n");
+        data.append("\nIngredients: \n");
         for (int index = 0; index < ingredients.size(); index++){
             String ingredient = ingredients.get(index);
-            data.append((index+1) + ingredient + "\n");
+            data.append((index+1) + ". " + ingredient + "\n");
         }
 
-        data.append("Instructions: \n");
+        data.append("\nInstructions: \n");
         for (int index = 0; index < instructions.size(); index++){
             String instruction = instructions.get(index);
-            data.append((index+1) + instruction + "\n");
+            data.append((index+1) + ". " + instruction + "\n");
         }
         return data.toString();
     }

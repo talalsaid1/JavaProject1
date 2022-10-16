@@ -55,7 +55,7 @@ class createRecipe{
     //Instructions
     public void instructions(Recipe recipe) {
     
-        System.out.println("Please enter your instructions one by one" + "\n(Enter 'done' when you are done): ");
+        System.out.println("Please enter your instructions one by one (Enter 'done' when you are done): ");
 
         boolean x = true;
         while (x) {
