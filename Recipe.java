@@ -37,13 +37,17 @@ public class Recipe {
     public String getDescription() {
         return description;
     }
-    public String getIng(int i) {
+    public String getIngrident(int i) {
         return ingredients.get(i);
     }
-    public String getInst(int i) {
-        return instructions.get(i);
+    public List<String> getInstructions() {
+        return instructions;
+    }
+    public List<String> getIngridients(){
+        return ingredients;
     }
 
+    //for file format
     public String toString(){
         StringBuffer data = new StringBuffer();
         data.append("Title: # \n" + title + "# \n");
@@ -65,6 +69,26 @@ public class Recipe {
             counter ++;
         }
 
+        return data.toString();
+    }
+
+    public String userToString(){
+        StringBuffer data = new StringBuffer();
+        data.append("Title: \n" + title + "\n");
+
+        data.append("Description: \n" + description + "\n");
+
+        data.append("Ingredients: \n");
+        for (int index = 0; index < ingredients.size(); index++){
+            String ingredient = ingredients.get(index);
+            data.append((index+1) + ingredient + "\n");
+        }
+
+        data.append("Instructions: \n");
+        for (int index = 0; index < instructions.size(); index++){
+            String instruction = instructions.get(index);
+            data.append((index+1) + instruction + "\n");
+        }
         return data.toString();
     }
 }
