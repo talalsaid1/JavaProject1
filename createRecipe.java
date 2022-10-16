@@ -37,12 +37,12 @@ class createRecipe{
         recipe.setdescription(receipeDescription);
     }
 
-    //ingredient list -- dynamic array
+    //ingredient list
     public void ingrdList(Recipe recipe) {
         System.out.println("Please enter your ingredients one by one (Enter 'done' when you are done): ");
         boolean x = true;
         while (x) {
-            //Fix user experience for prompting
+            
             String userIng = scan.nextLine();
             if (userIng.equals("done")) {
                     break;
@@ -54,7 +54,7 @@ class createRecipe{
     
     //Instructions
     public void instructions(Recipe recipe) {
-        //Possible move to inside of 
+    
         System.out.println("Please enter your instructions one by one" + "\n(Enter 'done' when you are done): ");
 
         boolean x = true;
